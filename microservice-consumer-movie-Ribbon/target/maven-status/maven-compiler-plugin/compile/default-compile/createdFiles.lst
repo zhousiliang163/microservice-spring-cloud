@@ -1,0 +1,5 @@
+com\cy\microservice\consumer\movie\bean\User.class
+com\cy\microservice\consumer\movie\controller\MovieController.class
+com\cy\microservice\consumer\movie\TestConfiguration.class
+com\cy\microservice\consumer\movie\ExcludeFromComponentScan.class
+com\cy\microservice\consumer\movie\RibbonMovieApp.class

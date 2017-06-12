@@ -1,0 +1,3 @@
+com\cy\spring\cloud\microservice\provider\user\bean\User.class
+com\cy\spring\cloud\microservice\provider\user\controller\UserController.class
+com\cy\spring\cloud\microservice\provider\user\UserApplication.class
