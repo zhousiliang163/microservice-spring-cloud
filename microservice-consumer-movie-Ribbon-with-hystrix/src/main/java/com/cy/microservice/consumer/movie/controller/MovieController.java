@@ -1,5 +1,7 @@
 package com.cy.microservice.consumer.movie.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.cy.microservice.consumer.movie.bean.User;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
@@ -17,17 +19,27 @@ public class MovieController {
 
 	@Autowired
 	private RestTemplate restTemplate;
+	@Autowired  
+	HttpServletRequest request;
 
+	/**
+	 * THREAD/SEMAPHORE
+	 * 
+	 * @return
+	 */
 	@GetMapping("getUser")
 	@HystrixCommand(fallbackMethod = "getUserFallback", commandProperties = {
-		      @HystrixProperty(name="execution.isolation.strategy", value="SEMAPHORE")
+		      @HystrixProperty(name="execution.isolation.strategy", value="THREAD")
 		    })
-	public User getUser() {
+	public User getUser(String name) {
 		SecurityContext context = SecurityContextHolder.getContext();
+		System.out.println("Authentication: " + context.getAuthentication());
+		//HttpSession session = request.getSession();
+		//System.out.println("session: " + session);
 		return restTemplate.getForObject("http://MICROSERVICE-PROVIDER-USER/user/getUser", User.class);
 	}
 
-	public User getUserFallback() {
+	public User getUserFallback(String name) {
 		User user = new User();
 		user.setName("getUserFallback");
 		return user;

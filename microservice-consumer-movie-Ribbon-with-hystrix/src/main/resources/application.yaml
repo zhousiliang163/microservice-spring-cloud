@@ -10,6 +10,8 @@ security:
 
 eureka:  
   client: 
+    healthcheck:  
+      enabled: true
     serviceUrl: 
       defaultZone: http://user:123@localhost:8761/eureka
   instance: 
@@ -20,3 +22,5 @@ spring:
   application: 
     name: microservice-consumer-movie-Ribbon-with-hystrix
 hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 5000
+
+//hystrix.shareSecurityContext: true
