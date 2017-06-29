@@ -1,0 +1,13 @@
+server: 
+  port: 9068
+  
+spring: 
+  application: 
+    name: configClient
+  cloud: 
+    config: 
+      profile: dev
+      label: master
+      uri: http://localhost:9067/
+
+management.security.enabled: false

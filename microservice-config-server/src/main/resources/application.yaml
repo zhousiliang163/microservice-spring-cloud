@@ -1,0 +1,14 @@
+server: 
+  port: 9067
+  
+spring: 
+  application: 
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/zhousiliang163/config-repo/
+          search-paths: test
+          username: 
+          password: 

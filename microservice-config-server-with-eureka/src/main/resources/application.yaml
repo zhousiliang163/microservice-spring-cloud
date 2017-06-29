@@ -1,0 +1,23 @@
+server: 
+  port: 9067
+  
+spring: 
+  application: 
+    name: config-server-with-eureka
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/zhousiliang163/config-repo/
+          search-paths: test
+          username: 
+          password: 
+
+eureka:  
+  client: 
+    serviceUrl: 
+      defaultZone: http://user:123@localhost:8761/eureka
+  instance: 
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+    

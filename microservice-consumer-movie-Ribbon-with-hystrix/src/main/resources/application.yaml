@@ -23,4 +23,6 @@ spring:
     name: microservice-consumer-movie-Ribbon-with-hystrix
 hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 5000
 
+logging.level.com.netflix.hystrix: TRACE
+
 //hystrix.shareSecurityContext: true
